@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="568.0" minWidth="800.0" prefHeight="568.0" prefWidth="1089.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ruoyi.ruoyigui.controller.RuoyiGUIController">
+    <children>
+        <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+            <top>
+                <MenuBar prefWidth="1155.0" BorderPane.alignment="CENTER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="配置">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#proxy_set" text="代理配置" />
+                        <MenuItem mnemonicParsing="false" onAction="#header_set" text="请求头配置" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="关于">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                    <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                    </padding>
+                </MenuBar>
+            </top>
+            <center>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TabPane layoutX="14.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                    <tabs>
+                      <Tab fx:id="tab_info" text="    信息    ">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="infores_txt" layoutX="153.0" layoutY="86.0" prefHeight="523.0" prefWidth="1141.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab fx:id="tab_sql" text=" SQL注入 ">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="sqlres_txt" layoutX="136.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                                    <GridPane layoutX="307.0" layoutY="-16.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#exe_sql" text="执行" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="sql_txt" text="select user()" GridPane.columnIndex="1" />
+                                          <Label text="SQL语句:" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                      <Tab fx:id="tab_thy" text="Thymeleaf注入">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="thfres_txt" layoutX="136.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                                    <GridPane layoutX="307.0" layoutY="-16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#exe_thf" text="执行" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="thf_txt" GridPane.columnIndex="1" />
+                                          <Label text="CMD:" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab fx:id="tab_sna" text="Snakeyaml漏洞">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="snares_txt" layoutX="136.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" promptText="使用的是https://github.com/lz2y/yaml-payload-for-ruoyi" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                                    <GridPane layoutX="307.0" layoutY="-16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#exe_sna" text="执行" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="sna_txt" text="http://127.0.0.1/yaml-payload.jar" GridPane.columnIndex="1" />
+                                          <Label text="yaml_jar包地址" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tab_sna_b" text="Snakeyaml漏洞(bypass)">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="jdbcres_txt" layoutX="136.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" promptText="使用的是https://github.com/lz2y/yaml-payload-for-ruoyi" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                                    <GridPane layoutX="307.0" layoutY="-16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#exe_jdbc" text="执行" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="jdbc_txt" text="select user()" GridPane.columnIndex="1" />
+                                          <ComboBox fx:id="comboBox1" prefWidth="200.0" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tab_sna_l" text="Snakeyaml漏洞不出网利用">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="jarres_txt" layoutX="192.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                                    <GridPane AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#upload_jar" text="上传" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Label text="本地jar包路径" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ComboBox fx:id="local_jar_path" editable="true" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </children></AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab fx:id="tab_fileread" text="任意文件读取漏洞">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="filereadres_txt" layoutX="136.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" promptText="Ruoyi download resource fileread漏洞不能携带盘符，只能读取profile所在盘文件（windows系统） | Ruoyi job fileread漏洞需要携带包括根路径的盘符（windows系统）" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                                    <GridPane layoutX="307.0" layoutY="-16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#exe_fileread" text="读取" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="fileread_txt" GridPane.columnIndex="1" />
+                                          <Label text="文件路径" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tab_gen" text="GenTable定时任务RCE漏洞">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="jndires_txt" layoutX="136.0" layoutY="71.0" prefHeight="200.0" prefWidth="200.0" promptText="使用的是https://github.com/cckuailong/JNDI-Injection-Exploit-Plus" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+                                    <GridPane layoutX="307.0" layoutY="-16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Button minWidth="50.0" mnemonicParsing="false" onAction="#exe_jndi" text="执行" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <TextField fx:id="jndi_txt" text="ldap://127.0.0.1:1389/deserialJackson" GridPane.columnIndex="1" />
+                                          <Label text="JNDI地址" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <GridPane layoutX="27.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="url_txt" GridPane.columnIndex="1" />
+                        <Label fx:id="url_label" text="URL:" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="版本：" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                        <ComboBox fx:id="comboBox" minWidth="300.0" prefWidth="150.0" GridPane.columnIndex="3" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="test_btn" layoutX="1197.0" layoutY="13.333" minWidth="80.0" mnemonicParsing="false" onAction="#check_url" text="检测" AnchorPane.rightAnchor="120.0" />
+                  <Button fx:id="clear_btn" layoutX="1302.0" layoutY="13.333" minWidth="80.0" mnemonicParsing="false" onAction="#clear" text="CLEAR" AnchorPane.rightAnchor="20.0" />
+               </children>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
